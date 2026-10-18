@@ -88,21 +88,30 @@ Use the native `.btw` format when you want the best preservation of Bubbles Word
 
 ## 📁 Supported File Types
 
-| File type | What Bubbles Word Writer does |
-| --- | --- |
-| `.btw` | Opens and saves the complete native document structure |
-| `.docx`, `.docm`, `.dotx`, `.dotm` | Opens and saves common Word content; macros are never executed or preserved |
-| `.doc` | Imports using LibreOffice when available, with a readable-text fallback |
-| `.odt` | Opens and saves common OpenDocument text and layout content |
-| `.rtf` | Opens and saves common rich-text formatting |
-| `.md`, `.markdown`, `.mdown`, `.mkd` | Opens and saves Markdown |
-| `.html`, `.htm`, `.xhtml` | Opens and saves sanitized HTML |
-| `.txt`, `.text`, `.log`, `.nfo` | Opens and saves plain text |
-| `.csv`, `.tsv`, `.json`, `.jsonl` | Opens and saves editable structured text |
-| `.xml`, `.yaml`, `.yml`, `.toml`, `.ini`, `.cfg`, `.conf` | Opens and saves configuration or data text |
-| Common programming-language files | Opens and saves editable source text |
-| `.tex`, `.rst`, `.adoc`, `.org` | Opens and saves editable text |
-| `.pdf` | Exports and prints PDF output |
+| Category | Supported file types | What Bubbles Word Writer does |
+| --- | --- | --- |
+| Bubbles document | `.btw` | Opens and saves the complete native document structure |
+| Microsoft Word Open XML | `.docx`, `.docm`, `.dotx`, `.dotm` | Opens and saves common Word content; macros are never executed or preserved |
+| Legacy Microsoft Word | `.doc` | Imports using LibreOffice when available, with a readable-text fallback |
+| OpenDocument | `.odt` | Opens and saves common OpenDocument text and layout content |
+| Rich Text Format | `.rtf` | Opens and saves common rich-text formatting |
+| Markdown | `.md`, `.markdown`, `.mdown`, `.mkd` | Opens and saves Markdown |
+| Web documents | `.html`, `.htm`, `.xhtml` | Opens and saves sanitized HTML |
+| Plain text and notes | `.txt`, `.text`, `.log`, `.nfo` | Opens and saves plain text |
+| Data files | `.csv`, `.tsv`, `.json`, `.jsonl`, `.xml` | Opens and saves editable data text |
+| Configuration files | `.yaml`, `.yml`, `.toml`, `.ini`, `.cfg`, `.conf` | Opens and saves editable configuration text |
+| Document markup | `.tex`, `.rst`, `.adoc`, `.org` | Opens and saves editable markup text |
+| JavaScript and TypeScript | `.js`, `.jsx`, `.ts`, `.tsx`, `.mjs`, `.cjs` | Opens and saves editable source text |
+| Web styles and components | `.css`, `.scss`, `.sass`, `.less`, `.vue`, `.svelte`, `.astro` | Opens and saves editable source text |
+| Python | `.py`, `.pyw` | Opens and saves editable source text |
+| Java and .NET | `.java`, `.cs`, `.fs`, `.fsx`, `.vb` | Opens and saves editable source text |
+| C, C++, and Objective-C | `.c`, `.h`, `.cpp`, `.cc`, `.cxx`, `.hpp`, `.m`, `.mm` | Opens and saves editable source text |
+| Go, Rust, Swift, Kotlin, and Dart | `.go`, `.rs`, `.swift`, `.kt`, `.kts`, `.dart` | Opens and saves editable source text |
+| PHP, Ruby, Lua, Perl, R, and Scala | `.php`, `.rb`, `.lua`, `.pl`, `.pm`, `.r`, `.scala` | Opens and saves editable source text |
+| Erlang, Elixir, and Clojure | `.erl`, `.ex`, `.exs`, `.clj`, `.cljs` | Opens and saves editable source text |
+| Shell and command scripts | `.sh`, `.bash`, `.zsh`, `.fish`, `.ps1`, `.bat`, `.cmd` | Opens and saves editable script text |
+| Database scripts | `.sql` | Opens and saves editable SQL text |
+| PDF output | `.pdf` | Exports and prints PDF output; PDF files are not opened for editing |
 
 Legacy `.doc` files are import-only. Complex Word and OpenDocument layouts may be simplified, so keep the original file and review converted copies before replacing anything important.
 
