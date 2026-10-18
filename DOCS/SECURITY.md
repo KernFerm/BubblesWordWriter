@@ -1,26 +1,131 @@
-# Security
+# Security Policy
 
-## Reporting a vulnerability
+The security and privacy of Bubbles Word Writer users are taken seriously. This policy explains which releases receive security fixes, how to report a vulnerability privately, and what reporters can expect after submitting a report.
 
-Use GitHub's private vulnerability reporting for `KernFerm/BubblesWordWriter` when it is enabled. Do not include exploit details, private documents, credentials, or access tokens in a public issue. Include the affected version, impact, reproduction steps using non-sensitive data, and any proposed mitigation. Security reports are reviewed before public disclosure.
+## Supported Versions
 
-Bubbles Word Writer uses Electron with context isolation, disabled renderer Node integration, renderer sandboxing, a strict preload bridge, blocked arbitrary navigation, and a restrictive Content Security Policy.
+Security fixes are provided for the latest published release.
 
-Documents are treated as data. Imported HTML is sanitized before saving or conversion, and document contents are not executed.
+| Version | Supported |
+| --- | --- |
+| 2.5.x | Yes |
+| 2.4.x and earlier | No |
 
-Privileged operations such as file access, shell integration, and update checks live in the main process behind narrow IPC methods.
+Users should install the newest available version before reporting a problem that may already have been corrected.
 
-Local structured logs are size-bounded and rotated. Sensitive context fields, authorization values, secret URL parameters, and operating-system account names in paths are redacted before an entry is written. Logs are never uploaded by the application.
+## Reporting A Vulnerability
 
-The optional local AI bridge is disabled by default and hard-coded to the IPv4 loopback Ollama endpoint. It rejects redirects, limits prompt and response sizes, applies a two-minute timeout, and never accepts a renderer-supplied URL.
+Do not report security vulnerabilities in a public issue, discussion, pull request, or social-media post.
 
-Live Collaboration is opt-in and uses the established Yjs CRDT with `y-prosemirror` and `y-websocket`. Remote endpoints must use WSS; plaintext WebSockets are restricted to loopback hosts. Endpoint URLs cannot contain embedded credentials, query parameters, or fragments. An optional access token is sent as a connection parameter, retained only in memory, and never written to settings or documents. Password-protected and read-only documents are blocked, and the active session is destroyed before switching tabs. The included self-hosted server supports a shared token or a server-owned authorization file with SHA-256 token hashes, exact or prefix room rules, editor/viewer roles, constant-time hash comparison, bounded payloads and connections, heartbeat cleanup, atomic local persistence, native TLS through `BWW_COLLAB_TLS_CERT` and `BWW_COLLAB_TLS_KEY`, and graceful shutdown. Viewers can synchronize and publish presence but server-side protocol enforcement rejects document updates. A non-loopback listener without native TLS starts only when `BWW_COLLAB_TRUST_PROXY_TLS=1` confirms trusted TLS termination. Deployments remain responsible for token rotation, account provisioning, backups, monitoring, and operating-system hardening.
+Use GitHub's private vulnerability reporting feature:
 
-Extensions use an explicit permission allowlist. Declarative commands and templates require `document:modify`; unknown permissions are discarded. Native executable commands additionally require an API-v1 runtime manifest, a SHA-256 integrity value, and a separate persisted trust decision. Each invocation runs in a new hidden, sandboxed Chromium renderer with Node.js and Electron disabled, all direct navigation and network requests denied, a dedicated in-memory session, bounded source/input/output sizes, and enforced execution-time and working-set limits. The host passes document or selection text only when `document:read` is granted. A sender-bound preload bridge mediates extension-private text storage, bounded clipboard text, and HTTPS JSON requests to exact manifest-declared public hosts; it rejects path traversal, redirects, and private-address network resolution. The sandbox is destroyed and its browser storage cleared after each invocation. Detected VS Code snippets are parsed as bounded text contributions; VS Code executable code is never loaded.
+1. Open the [Bubbles Word Writer Security page](https://github.com/KernFerm/BubblesWordWriter/security).
+2. Select **Report a vulnerability**.
+3. Submit the report privately through the security advisory form.
 
-## Automated scanning
+If private vulnerability reporting is temporarily unavailable, contact the repository owner privately through the [KernFerm GitHub profile](https://github.com/KernFerm). Do not publish exploit details while trying to make contact.
 
-Run local dependency and source checks with:
+## What To Include
+
+A useful report should contain:
+
+- The affected Bubbles Word Writer version
+- The Windows version and system architecture
+- A clear description of the vulnerability and its possible impact
+- Exact steps needed to reproduce the problem
+- Whether user interaction is required
+- A minimal proof of concept using non-sensitive sample data
+- Relevant screenshots or redacted diagnostic output
+- Any suggested mitigation or correction
+
+Do not submit real documents, passwords, access tokens, private collaboration room names, personal information, or other confidential data.
+
+## Response Process
+
+After a private report is received:
+
+1. The report will be reviewed and its receipt acknowledged when possible.
+2. The issue will be reproduced and its severity evaluated.
+3. The reporter may be asked for additional non-sensitive information.
+4. A correction or mitigation will be developed and tested when the issue is confirmed.
+5. A security release and advisory will be prepared when appropriate.
+6. Public disclosure will occur after users have had a reasonable opportunity to update.
+
+Response and correction times depend on severity, reproducibility, affected components, and the availability of a safe fix. Submitting a report does not guarantee that it will be accepted as a vulnerability.
+
+## Security Scope
+
+Reports are welcome for security problems involving:
+
+- The Windows installer or application update flow
+- Document opening, conversion, saving, printing, or export
+- Malicious DOCX, ODT, RTF, HTML, Markdown, image, or native `.btw` files
+- Password-protected native documents
+- Recovery data, settings, logs, or version history
+- Electron IPC boundaries and renderer isolation
+- Extension permissions, integrity checks, and sandbox escape
+- Clipboard, filesystem, or network mediation for extensions
+- Collaboration authentication, authorization, room isolation, or persistence
+- Local AI, OCR, dictation, or text-to-speech boundaries
+- Exposure of document content, credentials, or private local paths
+
+## Generally Out Of Scope
+
+The following are normally not treated as application vulnerabilities unless they create a separate security impact in Bubbles Word Writer:
+
+- Microsoft Defender SmartScreen warnings caused by the intentionally unsigned installer
+- Issues requiring an attacker to already have unrestricted administrator access to the computer
+- Social engineering without a technical application vulnerability
+- Denial of service requiring intentionally opening an extremely large trusted document
+- Vulnerabilities found only in unsupported versions
+- Findings in third-party services that do not affect Bubbles Word Writer
+- Missing features, formatting differences, or general software bugs without a security impact
+- Automated scanner output without a reproducible vulnerable path
+
+## Safe Research Guidelines
+
+Security research must:
+
+- Use systems and data you own or have permission to test
+- Avoid accessing, changing, or deleting another person's data
+- Avoid privacy violations, service disruption, and destructive testing
+- Stop testing if sensitive user information is encountered
+- Allow reasonable time for investigation and correction before disclosure
+- Follow applicable laws and platform terms
+
+Good-faith research that follows these guidelines will be treated respectfully. This policy does not authorize testing against systems, accounts, or collaboration servers operated by other people.
+
+## Privacy And Data Handling
+
+Bubbles Word Writer does not include publisher-operated telemetry, analytics, advertising, or document-content collection. Security reports and diagnostics should therefore be prepared manually and reviewed before submission.
+
+Local logs redact authorization values, sensitive URL parameters, and operating-system account names in paths. Reporters should still inspect every attachment and remove confidential information before sending it.
+
+See the [Privacy Policy](PRIVACY.md) for more information about local data and optional network features.
+
+## Application Security Measures
+
+Current production protections include:
+
+- Electron context isolation and renderer sandboxing
+- Disabled renderer Node.js integration
+- A narrow preload API and validated IPC requests
+- Sanitized imported HTML and non-executable document content
+- Atomic document, recovery, and history writes
+- Restricted navigation and Content Security Policy controls
+- Redacted, bounded, locally stored diagnostic logs
+- Integrity-pinned and permission-limited executable extensions
+- Disposable extension sandboxes with time, memory, input, and output limits
+- HTTPS-only extension networking to explicitly approved public hosts
+- Loopback-only local AI access
+- Encrypted remote collaboration transport requirements
+- Protected production packaging and Electron fuse hardening
+
+These protections reduce risk but do not guarantee that the software is free of vulnerabilities.
+
+## Dependency And Source Scanning
+
+Maintainers can run the project's security checks with:
 
 ```powershell
 npm run security:audit
@@ -30,21 +135,14 @@ npm run security:snyk:tooling
 npm run security:snyk:code
 ```
 
-`security:audit` and `security:snyk` are blocking checks for dependencies shipped inside the application. Their `:tooling` counterparts separately report development and packaging dependencies. The exact application and Electron versions are recorded in `package.json`; release validation rejects mismatched tags and metadata.
+Dependency folders, generated builds, installers, local runtime profiles, Git metadata, and coverage output are excluded from Snyk source upload. Credentials such as `SNYK_TOKEN` must never be committed, printed, or included in reports.
 
-The local Snyk policy records one narrow, expiring risk acceptance for `deepmerge` through `sanitize-html`. The sanitizer receives only application-owned literal option objects, never parsed document objects, so the vulnerable merge path is not attacker-controlled in Bubbles Word Writer. The exception expires on January 31, 2027 and must be removed or reevaluated when the dependency publishes a fix.
+## Installer Authenticity
 
-Upload dependency monitoring and source findings to the authenticated Snyk account with:
+Official installers are published through the [Bubbles Word Writer repository](https://github.com/KernFerm/BubblesWordWriter). The current installer is intentionally unsigned, so Windows may show a SmartScreen warning.
 
-```powershell
-npm run security:snyk:monitor
-npm run security:snyk:report
-```
+The expected SHA-256 value for version `2.5.22` is documented in [RELEASE.md](RELEASE.md). Compare the complete hash before running a downloaded installer when independent verification is required.
 
-Snyk Code exclusions are defined in `.snyk`. Dependency folders, generated builds, installers, runtime profiles, Git metadata, and coverage output are excluded from source upload. Never commit or print `SNYK_TOKEN`; configure it as a Snyk CLI credential or GitHub Actions secret.
-## Protected release builds
+## Disclosure And Credit
 
-Production builds use `npm run dist:protected`. This pipeline minifies and mangles compiled main-process and preload JavaScript, removes comments and debugger statements, omits application source maps, and packages the app in an integrity-checked ASAR archive. Electron's `RunAsNode`, Node options environment variable, and command-line inspector fuses are disabled, and the executable only loads the embedded ASAR application.
-
-The TypeScript source tree, tests, and build scripts are not included in the installer. Runtime dependencies remain packaged because the application requires them. These measures make inspection and modification harder, but they are not encryption and cannot guarantee that client-side code is unrecoverable. Secrets and signing credentials must never be embedded in the application.
-
+Confirmed vulnerabilities may be documented in a GitHub security advisory or release notes after a correction is available. Reporters who want recognition may request credit in the advisory. Anonymous reporting and anonymous credit requests will also be respected where GitHub permits them.
