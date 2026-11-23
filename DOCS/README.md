@@ -22,7 +22,7 @@ There is no required account, advertising, telemetry, analytics, or automatic cl
 
 Download the latest installer from the official [GitHub Releases page](https://github.com/KernFerm/BubblesWordWriter/releases/latest).
 
-1. Download `Bubbles-Word-Writer-Setup-2.5.22.exe`.
+1. Download `Bubbles-Word-Writer-Setup-2.6.55.exe`.
 2. Open the downloaded installer.
 3. Read and accept the license agreement.
 4. Follow the installation prompts.
@@ -250,4 +250,4 @@ The installer displays the End User License Agreement before installation. Third
 
 Made by **bubblesthedev**.
 
-Current version: **2.5.22**
+Current version: **2.6.55**

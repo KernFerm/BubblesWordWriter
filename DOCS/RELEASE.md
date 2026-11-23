@@ -1,12 +1,12 @@
-# 🎉 Bubbles Word Writer 2.5.22
+# 🎉 Bubbles Word Writer 2.6.55
 
-**Release date:** October 18, 2026  
+**Release date:** November 23, 2026  
 **Platform:** Windows 10 and Windows 11, 64-bit  
-**Installer:** `Bubbles-Word-Writer-Setup-2.5.22.exe`
+**Installer:** `Bubbles-Word-Writer-Setup-2.6.55.exe`
 
-[⬇️ Download Bubbles Word Writer 2.5.22](https://github.com/KernFerm/BubblesWordWriter/releases/download/v2.5.22/Bubbles-Word-Writer-Setup-2.5.22.exe)
+[⬇️ Download Bubbles Word Writer 2.6.55](https://github.com/KernFerm/BubblesWordWriter/releases/download/v2.6.55/Bubbles-Word-Writer-Setup-2.6.55.exe)
 
-Version `2.5.22` is a Windows release of Bubbles Word Writer: a private, local-first word processor with a familiar old-school desktop workflow. It does not require an account, advertising, telemetry, analytics, or cloud storage.
+Version `2.6.55` is a Windows release of Bubbles Word Writer: a private, local-first word processor with a familiar old-school desktop workflow. It does not require an account, advertising, telemetry, analytics, or cloud storage.
 
 ## 🌟 Release Highlights
 
@@ -23,7 +23,15 @@ Version `2.5.22` is a Windows release of Bubbles Word Writer: a private, local-f
 - Optional self-hosted collaboration and restricted local extensions
 - Editable text support for 88 document, data, configuration, and programming extensions
 
-## 🆕 What Changed In 2.5.22
+## 🆕 What Changed In 2.6.55
+
+### Updated application components
+
+- Refreshed the components used for document editing, Windows integration, updates, file handling, and application packaging.
+- Updated the complete editor family together to preserve formatting and document compatibility.
+- Resolved newly reported dependency security advisories.
+- Retained the equation-rendering version required by the current mathematics editor.
+- Confirmed that current writing, commands, and language resources continue to pass release checks.
 
 ### Update experience
 
@@ -39,7 +47,7 @@ Version `2.5.22` is a Windows release of Bubbles Word Writer: a private, local-f
 
 ### Installation
 
-- Updated the installer license to version `2.5.22`.
+- Updated public version and release information to `2.6.55`.
 - Rebuilt the Windows 64-bit installer.
 - Updated links to the official Bubbles Word Writer repository.
 
@@ -91,8 +99,8 @@ Network access occurs only after a user requests a network feature, such as chec
 
 1. Save all open documents.
 2. Close Bubbles Word Writer.
-3. Download the `2.5.22` installer using the button at the top of this page.
-4. Run `Bubbles-Word-Writer-Setup-2.5.22.exe`.
+3. Download the `2.6.55` installer using the button at the top of this page.
+4. Run `Bubbles-Word-Writer-Setup-2.6.55.exe`.
 5. Read and accept the license agreement.
 6. Complete the installation and launch the application.
 
@@ -106,7 +114,7 @@ The application installs for the current Windows user at:
 
 ## 🔄 Update Behavior
 
-The `2.5.22` GitHub release contains only the Windows EXE installer. Automatic downloading requires additional update files that are not included in an installer-only release.
+The `2.6.55` GitHub release contains only the Windows EXE installer. Automatic downloading requires additional update files that are not included in an installer-only release.
 
 When **Help > Check for Updates** cannot find compatible automatic-update metadata, the application displays a friendly message instead of technical GitHub output. Install future versions by downloading and running their newer installer.
 
@@ -119,11 +127,7 @@ When **Help > Check for Updates** cannot find compatible automatic-update metada
 
 ## 🔐 Installer Verification
 
-SHA-256 for `Bubbles-Word-Writer-Setup-2.5.22.exe`:
-
-```text
-B6B36BF737520B2E9DD678A004934A2C212C383B7B6153D288FD929D4647CBE1
-```
+GitHub displays the published SHA-256 digest beside the `2.6.55` installer asset. Use that release-page digest to verify the downloaded file.
 
 The installer is intentionally not digitally signed. Windows may display a Microsoft Defender SmartScreen warning. Download the installer only from the official `KernFerm/BubblesWordWriter` repository.
 

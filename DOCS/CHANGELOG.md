@@ -2,6 +2,14 @@
 
 This page summarizes changes that matter to people using Bubbles Word Writer. It intentionally leaves out internal development, security implementation, build-system, and testing details.
 
+## 2.6.55
+
+- Updated the application components used for editing, packaging, updates, file handling, testing, and Windows integration.
+- Updated the editor family together to maintain document and formatting compatibility.
+- Resolved newly reported dependency security advisories.
+- Confirmed that the application builds cleanly and passes all current writing, command, and language checks.
+- Retained the compatible equation-rendering version required by the current mathematics editor.
+
 ## 2.5.22
 
 - Corrected the GitHub location used by the update checker.
