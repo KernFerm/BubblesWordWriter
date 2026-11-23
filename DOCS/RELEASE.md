@@ -4,7 +4,7 @@
 **Platform:** Windows 10 and Windows 11, 64-bit  
 **Installer:** `Bubbles-Word-Writer-Setup-2.6.55.exe`
 
-[⬇️ Download Bubbles Word Writer 2.6.55](https://github.com/KernFerm/BubblesWordWriter/releases/download/v2.6.55/Bubbles-Word-Writer-Setup-2.6.55.exe)
+[⬇️ Download Bubbles Word Writer 2.6.55](https://github.com/KernFerm/BubblesWordWriter/releases/download/V2.6.55/Bubbles-Word-Writer-Setup-2.6.55.exe)
 
 Version `2.6.55` is a Windows release of Bubbles Word Writer: a private, local-first word processor with a familiar old-school desktop workflow. It does not require an account, advertising, telemetry, analytics, or cloud storage.
 
