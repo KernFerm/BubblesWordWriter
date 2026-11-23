@@ -6,7 +6,7 @@
 
 [⬇️ Download Bubbles Word Writer 2.5.22](https://github.com/KernFerm/BubblesWordWriter/releases/download/v2.5.22/Bubbles-Word-Writer-Setup-2.5.22.exe)
 
-Version `2.5.22` is a protected Windows release of Bubbles Word Writer: a private, local-first word processor with a familiar old-school desktop workflow. It does not require an account, advertising, telemetry, analytics, or cloud storage.
+Version `2.5.22` is a Windows release of Bubbles Word Writer: a private, local-first word processor with a familiar old-school desktop workflow. It does not require an account, advertising, telemetry, analytics, or cloud storage.
 
 ## 🌟 Release Highlights
 
@@ -25,13 +25,11 @@ Version `2.5.22` is a protected Windows release of Bubbles Word Writer: a privat
 
 ## 🆕 What Changed In 2.5.22
 
-### Updater repair
+### Update experience
 
-- Changed the official application and updater destination to `KernFerm/BubblesWordWriter`.
-- Removed the obsolete `bubblesthedev/bubbles-writer` address from the current build.
-- Prevented raw GitHub response headers, authentication details, and server output from appearing in the Software Update window.
-- Added a clear message when a release supports manual installation but does not provide automatic-update metadata.
-- Added regression coverage for missing GitHub release information.
+- Corrected the GitHub location used by the update checker.
+- Replaced technical update errors with clear messages.
+- Added guidance for releases that require a manual installer download.
 
 ### Documentation
 
@@ -39,11 +37,11 @@ Version `2.5.22` is a protected Windows release of Bubbles Word Writer: a privat
 - Documented all 88 file extensions accepted by the application.
 - Updated repository links, version information, installer details, and release guidance.
 
-### Packaging
+### Installation
 
 - Updated the installer license to version `2.5.22`.
-- Rebuilt the protected Windows x64 application and NSIS installer.
-- Verified that the packaged updater points to `KernFerm/BubblesWordWriter`.
+- Rebuilt the Windows 64-bit installer.
+- Updated links to the official Bubbles Word Writer repository.
 
 ## ✍️ Writing And Editing
 
@@ -108,21 +106,16 @@ The application installs for the current Windows user at:
 
 ## 🔄 Update Behavior
 
-The `2.5.22` GitHub release contains only the Windows EXE installer. Automatic downloading through Electron Updater requires additional metadata that is intentionally not included in an installer-only release.
+The `2.5.22` GitHub release contains only the Windows EXE installer. Automatic downloading requires additional update files that are not included in an installer-only release.
 
 When **Help > Check for Updates** cannot find compatible automatic-update metadata, the application displays a friendly message instead of technical GitHub output. Install future versions by downloading and running their newer installer.
 
-## ✅ Release Validation
+## ✅ Release Checks
 
-- TypeScript validation passed
-- `123` automated tests passed
-- `136` native menu commands validated
-- `116` renderer controls validated
-- `158` Command Search entries validated
-- `673` static interface strings validated in English, Spanish, and Arabic
-- Protected Electron build completed successfully
-- Windows NSIS installer completed successfully
-- Packaged updater destination verified as `KernFerm/BubblesWordWriter`
+- The Windows application and installer were built successfully.
+- Core writing, saving, menus, and language resources passed release checks.
+- The update checker points to the official Bubbles Word Writer repository.
+- The installer checksum is provided below for independent verification.
 
 ## 🔐 Installer Verification
 
@@ -141,7 +134,7 @@ The installer is intentionally not digitally signed. Windows may display a Micro
 - Legacy `.doc` files are import-only and may lose formatting without LibreOffice.
 - Password encryption applies to native `.btw` documents, not encrypted Office files.
 - PDF is an export and print format, not an editable import format.
-- Collaboration requires a separately operated Yjs-compatible server.
+- Collaboration requires a separately operated collaboration service.
 - The installer is unsigned.
 
 ## 🗑️ Uninstalling

@@ -177,13 +177,13 @@ Open **Tools > Extensions** to manage local Bubbles Word Writer extensions. Supp
 
 If Visual Studio Code is installed, Bubbles Word Writer detects its normal extension folders and makes compatible snippets available. VS Code executable extension code is not run inside Bubbles Word Writer.
 
-Executable Bubbles extensions remain disabled until explicitly trusted. They run with restricted permissions, integrity checks, resource limits, and isolated access to approved capabilities.
+Only install extensions from people you trust. Bubbles Word Writer asks before enabling extensions that can run commands.
 
 ## 🧰 Optional Local Tools
 
 ### Local writing assistant
 
-Install Ollama separately, enable **Local AI** in Settings, and enter an installed model name. Requests are restricted to the local Ollama address at `127.0.0.1:11434`.
+Install Ollama separately, enable **Local AI** in Settings, and select a model installed on your computer. Writing requests are processed by your local Ollama installation.
 
 ### OCR
 
@@ -195,7 +195,7 @@ Choose **Tools > Dictation** to recognize one passage using Windows speech recog
 
 ### Collaboration
 
-Choose **Tools > Live Collaboration** to connect to a Yjs-compatible server that you or your organization controls. Collaboration is off until you press **Connect**. The publisher does not operate a document collaboration service.
+Choose **Tools > Live Collaboration** to connect to a collaboration service that you or your organization controls. Collaboration is off until you press **Connect**. The publisher does not operate a document collaboration service.
 
 ## 🧰 Troubleshooting
 
@@ -233,28 +233,6 @@ Open **Windows Settings > Apps > Installed apps**, find **Bubbles Word Writer**,
 
 The uninstaller can independently remove application settings; recovery data, version history, templates, and clipboard history; or extensions and cached profile data. These options are unchecked by default. Documents saved elsewhere are not removed.
 
-## 👩‍💻 Developer Quick Start
-
-Bubbles Word Writer uses Electron, TypeScript, Vite, TipTap, Vitest, Playwright, and Electron Builder.
-
-```powershell
-npm install
-npm start
-```
-
-Validate and package the project:
-
-```powershell
-npm test
-npm run lint
-npm run security:audit
-npm run prepare:protected
-npm run pack:protected
-npm run dist:protected
-```
-
-Developer documentation is available in [Architecture](ARCHITECTURE.md), [Security](SECURITY.md), [Contributing](CONTRIBUTING.md), and [Building](../BUILDING.md).
-
 ## ⚠️ Important Limitations
 
 - Complex DOCX, ODT, and legacy DOC documents may not preserve every advanced layout or drawing.
@@ -266,7 +244,7 @@ Developer documentation is available in [Architecture](ARCHITECTURE.md), [Securi
 
 ## 📄 License And Notices
 
-The source code is available under the [MIT License](../LICENSE). Official installers display the [End User License Agreement](../build/license.txt) before installation. Third-party notices are available in [THIRD_PARTY_NOTICES.txt](../THIRD_PARTY_NOTICES.txt).
+The installer displays the End User License Agreement before installation. Third-party notices are included with the installed application.
 
 ## 👤 Author
 
